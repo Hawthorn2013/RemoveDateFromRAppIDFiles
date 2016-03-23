@@ -1,4 +1,5 @@
-﻿def del_from_file(path):
+﻿import os
+def del_from_file(path):
     with open(path, 'r') as f:
         file_list = f.readlines();
         try:
@@ -22,4 +23,9 @@
         f.writelines(file_list)
     
 print('Hello, Python!')
-del_from_file('RAppIDSrc\default560B.lcf')
+WORK_DIR = 'RAppIDSrc'
+files_name_list = [x for x in os.listdir(WORK_DIR) if os.path.isfile(os.path.join(WORK_DIR, x))]
+for file_name in files_name_list:
+    print('Processing "' + file_name + '"')
+    del_from_file(os.path.join(WORK_DIR, file_name))
+print('Process accomplished!')
