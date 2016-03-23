@@ -18,9 +18,8 @@
                         file_list[list_index] = ' *\n'
         except Exception as e:  #Attention: Should not catch all exception.
             pass
-    print(file_list)
-    with open(path + '.tmp', 'w') as f:
+    with open(path, 'w') as f:
         f.writelines(file_list)
     
 print('Hello, Python!')
-del_from_file('RAppIDSrc\default560B.lcf.tmp')
+del_from_file('RAppIDSrc\default560B.lcf')
