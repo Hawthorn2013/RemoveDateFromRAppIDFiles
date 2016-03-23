@@ -1,4 +1,6 @@
 ﻿import os
+import sys
+
 def del_from_file(path):
     with open(path, 'r') as f:
         file_list = f.readlines();
@@ -21,9 +23,14 @@ def del_from_file(path):
             pass
     with open(path, 'w') as f:
         f.writelines(file_list)
-    
-print('Hello, Python!')
-WORK_DIR = 'RAppIDSrc'
+
+if len(sys.argv) == 1:
+    WORK_DIR = 'RAppIDSrc'
+elif len(sys.argv) ==2:
+    WORK_DIR = sys.argv[1]
+else:
+    print('Paramter format error!')
+    sys.exit(1)
 files_name_list = [x for x in os.listdir(WORK_DIR) if os.path.isfile(os.path.join(WORK_DIR, x))]
 for file_name in files_name_list:
     print('Processing "' + file_name + '"')
