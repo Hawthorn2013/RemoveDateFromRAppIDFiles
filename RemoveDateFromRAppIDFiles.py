@@ -1,4 +1,4 @@
-﻿import os
+import os
 import sys
 
 def del_from_file(path):
